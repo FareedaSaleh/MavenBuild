@@ -20,21 +20,7 @@ node('master') {
 		archiveArtifacts artifacts: 'target/*.war'
 	}
 	
-	stage ('Deployment'){
-		/*ansiblePlaybook( 
-        		playbook: 'deploy.yml',
-        		inventory: '/etc/ansible/hosts', 
-			extras: '--become',
-        		colorized: true) */
-		deploy adapters: [tomcat(credentialsId: 'TomcatCreds', path: '', url: 'http://52.90.29.200:8080/')], contextPath: null, war: 'target/*.war'
-	}
-	stage ('Notification'){
-		//slackSend color: 'good', message: 'Deployment Sucessful'
-		emailext (
-		      subject: "Job Completed",
-		      body: "Jenkins Pipeline Job for Maven Build got completed !!!",
-		      to: "anuj_sharma401@yahoo.com"
-		    )
+	
 	}
    }
 }
