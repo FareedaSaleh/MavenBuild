@@ -36,7 +36,7 @@ node('master') {
 		emailext (
 		      subject: "Job Completed",
 		      body: "Jenkins Pipeline Job for Maven Build got completed !!!",
-		      to: "falharbi@hotmail.com"
+		      to: "fr.alharbi@hotmail.com"
 		    )
    }
 }
